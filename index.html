@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel = "stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div class = "container">
+        <div class="content">
+            <div id = "input">
+                <input type = "text" name = "number_field" value = 0 id="number_field" maxlength=11/>
+            </div>
+            <div class = "button_digit">
+                <div>
+                    <button type = "button" class="digit" onclick = "getNumber(7)">7</button>
+                    <button type = "button" class="digit" onclick = "getNumber(8)">8</button>
+                    <button type = "button" class="digit" onclick = "getNumber(9)">9</button>
+                    <button type = "button" class = "operator" onclick="performArithmetic('/',1)">/</button>
+                </div>
+                <div>
+                    <button type = "button" class="digit" onclick = "getNumber(4)">4</button>
+                    <button type = "button" class="digit" onclick = "getNumber(5)">5</button>
+                    <button type = "button" class="digit" onclick = "getNumber(6)">6</button>
+                    <button type = "button" class = "operator" onclick="performArithmetic('*',1)">*</button>
+                </div>
+                <div>
+                    <button type = "button" class="digit" onclick = "getNumber(1)">1</button>
+                    <button type = "button" class="digit" onclick = "getNumber(2)">2</button>
+                    <button type = "button" class="digit" onclick = "getNumber(3)">3</button>
+                    <button type = "button" class = "operator" onclick="performArithmetic('-',1)">-</button>
+                </div>
+                <div>
+                    <button type = "button" class="digit" onclick="showAnswer()">=</button>
+                    <button type = "button" class="digit" onclick="clearNumberField()">CE</button>
+                    <button type = "button" class="digit" onclick = "getNumber(0)">0</button>
+                    <button type = "button" class = "operator" onclick="performArithmetic('+',1)">+</button>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <script src = "functions.js"></script>
+</body>
+</html>
