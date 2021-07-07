@@ -5,6 +5,7 @@ let numToCompute = 0;
 let count = 0
 let secondNum = 0;
 let continuousOperator = false;
+let numtoCompute2 = 0;
 getNumber = function(num){
     if(operation == "")
     {
@@ -15,7 +16,6 @@ getNumber = function(num){
         document.getElementById("number_field").textContent = tempNum;
         tempNum = tempNum + num;
         document.getElementById("number_field").value = tempNum;
-        showAnswer();
     }
 
 }
@@ -24,14 +24,23 @@ performArithmetic = function(op, val){
     operation = op;
     if(count == 1)
     {
+        operation = op;
         numToCompute = tempNum;
     } else {
-       showAnswer();
+        numtoCompute2 = tempNum;
+        if(result != 0){
+            numToCompute = parseInt(result)
+        }
+        showAnswer();
     }
 
 }
 showAnswer = function(){
-    secondNum = document.getElementById("number_field").value;
+    if(numtoCompute2 == 0){
+        secondNum = document.getElementById("number_field").value;
+    } else {
+        secondNum = numtoCompute2;
+    }
     if(operation === '+'){
         result = parseInt(numToCompute) + parseInt(secondNum);
     } else if(operation === '-'){
