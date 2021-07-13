@@ -1,13 +1,8 @@
-let tempNum = "", tempNum2 = "";
+let tempNum = "";
 let result = 0;
 let operator = "";
-let otherOperator = "";
 let numToCompute = 0;
 let count = 0
-let secondNum = 0;
-let continuousOperator = false;
-let numtoCompute2 = 0;
-let oneOperator = false;
 let answer = 0;
 let arrOp = [];
 
