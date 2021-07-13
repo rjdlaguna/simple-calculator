@@ -1,54 +1,60 @@
-let tempNum = "";
+let tempNum = "", tempNum2 = "";
 let result = 0;
-let operation = "";
+let operator = "";
+let otherOperator = "";
 let numToCompute = 0;
 let count = 0
 let secondNum = 0;
 let continuousOperator = false;
 let numtoCompute2 = 0;
+let oneOperator = false;
+let answer = 0;
+let arrOp = [];
+
 getNumber = function(num){
-    if(operation == "")
+    if(operator == "")
     {
         tempNum = tempNum + num;
         document.getElementById("number_field").value = tempNum;
     } else {
-        tempNum = ""
-        document.getElementById("number_field").textContent = tempNum;
         tempNum = tempNum + num;
         document.getElementById("number_field").value = tempNum;
     }
-
 }
-performArithmetic = function(op, val){
-    count = count + val;
-    operation = op;
-    if(count == 1)
-    {
-        operation = op;
-        numToCompute = tempNum;
-    } else {
-        numtoCompute2 = tempNum;
-        if(result != 0){
-            numToCompute = parseInt(result)
-        }
-        showAnswer();
-    }
 
+performArithmetic = function(op, val) {
+    operator = op;
+    arrOp.push(op);
+    count = count + val;
+    if(arrOp.length == 1){
+        answer = parseInt(tempNum)
+    }
+    if(arrOp.length > 1)
+    {
+        if( arrOp[0] === '+'){
+            answer = answer + parseInt(tempNum);
+        } else if(arrOp[0] === '-'){
+            answer = answer - parseInt(tempNum);
+        } else if(arrOp[0] === '*'){
+            answer = answer * parseInt(tempNum);
+        } else if(arrOp[0] === '/'){
+            answer = answer / parseInt(tempNum);
+        }
+        arrOp[0] = arrOp[1];
+        arrOp.pop();
+        document.getElementById("number_field").value = answer;
+    }
+    tempNum = "";
 }
 showAnswer = function(){
-    if(numtoCompute2 == 0){
-        secondNum = document.getElementById("number_field").value;
-    } else {
-        secondNum = numtoCompute2;
-    }
-    if(operation === '+'){
-        result = parseInt(numToCompute) + parseInt(secondNum);
-    } else if(operation === '-'){
-        result = parseInt(numToCompute) - parseInt(secondNum);
-    } else if(operation === '*'){
-        result = parseInt(numToCompute) * parseInt(secondNum);
-    } else if(operation === '/'){
-        result = parseInt(numToCompute) / parseInt(secondNum);
+    if(operator === '+'){
+        result = answer + parseInt(tempNum);
+    } else if(operator === '-'){
+        result = answer - parseInt(tempNum);
+    } else if(operator === '*'){
+        result = answer * parseInt(tempNum);
+    } else if(operator === '/'){
+        result = answer / parseInt(tempNum);
     }
     document.getElementById("number_field").value = result
 }
@@ -56,8 +62,8 @@ showAnswer = function(){
 clearNumberField = function(){
     document.getElementById("number_field").value = 0;
     tempNum = "";
-    secondNum = "";
     numToCompute = "";
     result = "";
     operation = "";
+    answer = "";
 }
