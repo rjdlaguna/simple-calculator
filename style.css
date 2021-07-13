@@ -1,8 +1,9 @@
 .content{
-    position: fixed;
-    width: 260px;
-    height: 300px;
     border: 0.5em solid gray;
+    margin: auto;
+    width: 19%;
+    padding: 10px;
+    background:#22ee;
 }
 .digit, .operator{
     width: 50px;
